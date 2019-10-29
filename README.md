@@ -1,0 +1,2 @@
+# ROM
+Racunalniski praktikum r
