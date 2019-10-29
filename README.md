@@ -1,2 +1,3 @@
 # ROM
-Racunalniski praktikum r
+Racunalniski praktikum githubvaje
+Popravil sem
