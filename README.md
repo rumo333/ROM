@@ -1,8 +1,2 @@
 # ROM
-Racunalniski praktikum githubvaje
-Popravil sem
-Popravil sem se na githubu
-
-En vzporeden popravek
-
-Popravil sem na githubu merge conflict
+Pri seminarski nalogi bi rad predstavil kompleksna stevila 
