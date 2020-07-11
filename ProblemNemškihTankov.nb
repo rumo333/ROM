@@ -1,0 +1,396 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17530,        388]
+NotebookOptionsPosition[     15227,        346]
+NotebookOutlinePosition[     15631,        363]
+CellTagsIndexPosition[     15588,        360]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["Seminarska naloga", "Title",
+ FontWeight->"Bold",
+ FontColor->RGBColor[0., 0., 0.]]], "Text",
+ CellChangeTimes->{{3.7884364560691805`*^9, 3.788436462018473*^9}, {
+  3.788436563400238*^9, 3.788436566959963*^9}},
+ TextAlignment->Center,ExpressionUUID->"e548a488-4631-4dbb-8972-b5b4535f8ea1"],
+
+Cell["\<\
+Avtor: Rok Lokov\[SHacek]ek
+Ra\[CHacek]unalni\[SHacek]ka orodja v matematiki\
+\>", "Text",
+ CellChangeTimes->{{3.788436467333378*^9, 3.7884364818958797`*^9}, {
+  3.788436603482692*^9, 3.788436610839534*^9}, {3.7884369463723884`*^9, 
+  3.788436981428173*^9}, {3.803401635605719*^9, 3.803401648256247*^9}},
+ TextAlignment->Center,ExpressionUUID->"ccfc3841-349f-4a89-aaab-7a69f2a2cf80"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.788440846477253*^9, 3.7884408513608656`*^9}, {
+   3.788440905692425*^9, 3.7884409088472967`*^9}, {3.788441065682359*^9, 
+   3.7884410700312195`*^9}, {3.7884411389782743`*^9, 3.788441141836441*^9}, 
+   3.7884468705125904`*^9},
+ FontFamily->"Source Sans Pro",
+ FontSize->15,
+ FontWeight->"Plain",ExpressionUUID->"4f738dd3-255b-4b6a-9bd6-c5dbc2486176"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Problem Nem\[SHacek]kih tankov ", "Subtitle",
+ FontSize->28,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0., 0., 0.]]], "Section",
+ CellChangeTimes->{{3.7884355054789176`*^9, 3.7884355164080544`*^9}, {
+  3.788436833750227*^9, 3.788436835348627*^9}, {3.803401652284369*^9, 
+  3.803401664737727*^9}},
+ TextAlignment->Center,
+ FontSize->15,ExpressionUUID->"727df9f2-f031-448d-a279-e706fa51417b"],
+
+Cell[TextData[StyleBox["L Problem nem\[SHacek]kih tankov se v teoriji \
+statistike ocenjevanja maksimuma diskretne enakomerne porazdelitve \niz vzor\
+\[CHacek]enja brez zamenjave. \[CapitalCHacek]e je na primer neznano \
+\[SHacek]tevilo predmetov, ki so zaporedoma ozna\[CHacek]eni od 1 do N, se \
+pri tem vzame naklju\[CHacek]ni vzorec\n in opazuje njihova zaporedna \
+\[SHacek]tevila. Problem je oceniti \[SHacek]tevilo N iz teh opazovanih \
+zaporednih \[SHacek]tevil. \n \n  Problem se imenuje po uporabi zaveznikov v \
+2. svetovni vojni ki so ocenjevali mese\[CHacek]no stopnjo proizvodnje nem\
+\[SHacek]kih tankov iz pomanjkljivih (gledano statisti\[CHacek]no) vzor\
+\[CHacek]nih podatkov. \n  Izkoristili so proizvodno prakso dodeljevanja nara\
+\[SHacek]\[CHacek]ajo\[CHacek]ih zaporedij serijskih \[SHacek]tevilk \
+komponentam tankov (oklop, menjalnik, motor, kolesa), ki so jih zajeli med \
+spopadi s silami osi.\n\nProblem je re\[SHacek]ljiv tako s pogostnostnim kot \
+z Bayesovim sklepanjem, pri \[CHacek]emer pa se z metodama dobijo razli\
+\[CHacek]ni rezultati. \nOcenjevanje najve\[CHacek]je populacije na podlagi \
+enega vzorca vodi do divergentnih rezultatov, ocenjevanje na podlagi \
+mnogokratnih vzorcev je prakti\[CHacek]no ocenjevalno vpra\[SHacek]anje, \
+katerega odgovor je preprost \n(\[SHacek]e posebej v smislu pogostnostnega \
+sklepanja), vendar ni o\[CHacek]iten (\[SHacek]e posebej v smislu Bayesovega \
+sklepanja).  ",
+ FontSize->18,
+ Background->GrayLevel[1]]], "Text",
+ CellChangeTimes->{{3.788384228458599*^9, 3.7883842952468386`*^9}, {
+   3.7884338646228495`*^9, 3.7884338657267466`*^9}, {3.7884340727108045`*^9, 
+   3.7884341233073845`*^9}, {3.7884354168769283`*^9, 3.788435418525174*^9}, 
+   3.7884372220685434`*^9, {3.7884375450364056`*^9, 3.788437550604211*^9}, {
+   3.78845652422933*^9, 3.788456551780813*^9}, {3.803453954566245*^9, 
+   3.803454081222109*^9}, {3.803454218297449*^9, 3.803454261712079*^9}, {
+   3.8034543143423977`*^9, 3.803454315888781*^9}, {3.803454359199109*^9, 
+   3.803454382052867*^9}},
+ TextAlignment->Center,ExpressionUUID->"a485c876-9e11-480e-86cd-42dcef42d853"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Formula", "Chapter",
+ FontColor->RGBColor[0., 0., 0.]]], "Section",
+ CellChangeTimes->{{3.7884354795584316`*^9, 3.7884354895980034`*^9}, {
+  3.7884355230597076`*^9, 3.7884355254196815`*^9}, {3.788437266937793*^9, 
+  3.788437271112095*^9}, {3.803455396420542*^9, 3.8034554043044147`*^9}},
+ TextAlignment->Center,
+ FontSize->15,ExpressionUUID->"70a34f51-e461-4151-a0a1-fefa88166a21"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"SetOptions", "[", 
+   RowBox[{
+    RowBox[{"EvaluationNotebook", "[", "]"}], ",", 
+    RowBox[{"Background", "\[Rule]", "LightBrown"}]}], "]"}],
+  FontWeight->"Plain"]], "Input",
+ CellChangeTimes->{{3.788446892457994*^9, 3.7884469075476427`*^9}, {
+  3.788456451701147*^9, 3.7884564536782317`*^9}, {3.7884565019679165`*^9, 
+  3.788456510142592*^9}},
+ CellLabel->"In[80]:=",ExpressionUUID->"1c68af70-7370-4641-9683-1ff49be69f27"],
+
+Cell[TextData[StyleBox["Formula:    ",
+ Background->None]], "Text",
+ CellChangeTimes->{{3.7884356173471017`*^9, 3.78843563240982*^9}, {
+  3.7884372452950387`*^9, 3.788437248192122*^9}, {3.7884375702525396`*^9, 
+  3.7884375795712223`*^9}, {3.803454597808326*^9, 3.803454621510933*^9}, {
+  3.803454726933568*^9, 3.803454803965873*^9}, {3.8034548875790043`*^9, 
+  3.8034549090642567`*^9}, {3.803454973225068*^9, 
+  3.8034550021956987`*^9}},ExpressionUUID->"249cb94e-1721-4312-ba79-\
+eb562d339e52"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{"m_", ",", "n_"}], "]"}], " ", ":=", "  ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"m", "+", 
+      RowBox[{"(", 
+       RowBox[{"m", "/", "n"}], ")"}]}], " ", ")"}], "-", "1"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Kjer", " ", 
+   RowBox[{"je", ":", "\n", "  ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"f", 
+         RowBox[{"(", 
+          RowBox[{"m", ",", "n"}], ")"}]}], " ", "..."}], "..."}], ".", " ", 
+      "maksimum"}], " ", "populacije"}]}]}],
+  Background->None], "\n", 
+ RowBox[{
+  StyleBox["  ",
+   Background->None], 
+  StyleBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"m", "..."}], "..."}], "..."}], ".", "maksimalna"}], " ", 
+    "vrednost", " ", "vzorca"}],
+   Background->None]}], "\[IndentingNewLine]", 
+ RowBox[{
+  StyleBox["  ",
+   Background->None], 
+  StyleBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"n", "..."}], "..."}], "..."}], ".."}], "velikost", " ", 
+    "vzorca"}],
+   Background->None]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.7884356536213226`*^9, 3.78843566877022*^9}, {
+  3.80345462442875*^9, 3.803454648910164*^9}, {3.803454704249639*^9, 
+  3.803454707518137*^9}, {3.803455009072898*^9, 3.8034550120873547`*^9}, {
+  3.803455059870164*^9, 3.8034550866880417`*^9}, {3.8034551450174513`*^9, 
+  3.803455189281781*^9}, {3.8034563135053177`*^9, 3.803456344695683*^9}, {
+  3.803458073724382*^9, 3.803458076635746*^9}, {3.803458403843815*^9, 
+  3.803458445201922*^9}, {3.803458480521492*^9, 3.803458525537363*^9}, {
+  3.803458606444729*^9, 3.803458609468664*^9}, {3.8034586807593327`*^9, 
+  3.803458684355699*^9}},
+ FontFamily->"Source Sans Pro",
+ FontSize->15,
+ FontWeight->"Plain",ExpressionUUID->"72f9e300-4605-49a7-980f-be8af55e27fb"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.80345503662368*^9, 
+  3.8034550375774193`*^9}},ExpressionUUID->"7daa132b-3f25-4900-9b5c-\
+229e89f37d5f"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7884357926232405`*^9, 3.788435831509738*^9}, {
+   3.788457461702507*^9, 3.7884574633087378`*^9}, 3.803454928547915*^9, 
+   3.803455494023315*^9},
+ FontFamily->"Source Sans Pro",
+ FontSize->15,
+ FontWeight->"Plain",ExpressionUUID->"381e040b-e59e-4d9c-85ab-6830f52999c1"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.7884410772963266`*^9, 3.803454941724688*^9, 
+  3.803455491927291*^9},
+ FontFamily->"Source Sans Pro",
+ FontSize->15,
+ FontWeight->"Plain",ExpressionUUID->"1fcb957a-8503-4ead-ae11-c692f7274689"],
+
+Cell[TextData[{
+ StyleBox["\n                                                                 \
+                                                                              \
+                                                                              \
+                                                                              \
+                    ",
+  Background->None],
+ StyleBox["Primer:\n                                                          \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+          ", "Chapter",
+  FontColor->RGBColor[0., 0., 0.],
+  Background->None],
+ StyleBox[" V primeru, da zajamemo 5 nasprotnikovih tankov z seriskimi \
+\[SHacek]tevilkami 1, 31, 43, 79 in 115.  Kaj je mozen maksimum populacije?\n\
+\n\n\nResitev: \[LineSeparator]\[LineSeparator]Korak 1:  Vstavi dane \
+vrednosti v formulo v tem primeru je  velikost vzorca 5 in najvi\[SHacek]ja \
+vrednost v vzorcu je 115 .                                                    \
+                                                                              \
+              ",
+  FontSize->18,
+  FontColor->RGBColor[0., 0., 0.],
+  Background->GrayLevel[1]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.7884363044529085`*^9, 3.7884363725773993`*^9}, {
+  3.788437045642517*^9, 3.788437140499349*^9}, {3.788437443567087*^9, 
+  3.7884374464146104`*^9}, {3.7884376269080925`*^9, 3.788437720823657*^9}, {
+  3.78843780576644*^9, 3.788437858252922*^9}, {3.7884558971587834`*^9, 
+  3.788455899039242*^9}, {3.788456606468193*^9, 3.7884566675503373`*^9}, {
+  3.803455430462796*^9, 3.8034554584186277`*^9}, {3.8034555014172363`*^9, 
+  3.803455634287923*^9}, {3.803455700376034*^9, 3.803455796667893*^9}, {
+  3.803456075173955*^9, 3.8034562207454853`*^9}, {3.803456269171986*^9, 
+  3.8034562987606993`*^9}, {3.803456535852448*^9, 3.803456579893387*^9}, {
+  3.803457711488064*^9, 3.803457724594357*^9}, {3.803457755435597*^9, 
+  3.8034577578505993`*^9}},ExpressionUUID->"8b508af9-5a3f-42f0-bbeb-\
+0200819c508a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{" ", 
+   RowBox[{
+    RowBox[{"n", " ", "=", " ", "5"}], "\[IndentingNewLine]", 
+    RowBox[{"m", " ", "=", " ", "115"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"f", "[", 
+      RowBox[{"m_", ",", "n_"}], "]"}], " ", ":=", "  ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"m", "+", 
+        RowBox[{"(", 
+         RowBox[{"m", "/", "n"}], ")"}]}], " ", ")"}], "-", "1"}]}], 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Korak", " ", "2"}], ":", " ", 
+     RowBox[{"izra\[CHacek]unaj", "!"}]}], "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"f", "[", 
+     RowBox[{"m", ",", "n"}], "]"}], "\[IndentingNewLine]"}]}],
+  FontSize->18,
+  FontColor->RGBColor[0., 0., 0.],
+  Background->GrayLevel[1]]], "Input",
+ CellChangeTimes->{{3.803457888267795*^9, 3.8034579147042027`*^9}, {
+  3.803458005482463*^9, 3.8034580201684713`*^9}, {3.803458084072905*^9, 
+  3.803458133077238*^9}, {3.803458334057122*^9, 3.8034583409303493`*^9}, {
+  3.803458530743339*^9, 3.803458568829521*^9}, {3.803458599744532*^9, 
+  3.803458622392577*^9}, {3.80345894916968*^9, 3.803458999139077*^9}, {
+  3.80345910985317*^9, 3.80345913935863*^9}, {3.803459387955697*^9, 
+  3.803459632739294*^9}},ExpressionUUID->"5589eef5-b684-4300-bfb3-\
+e2c629269946"],
+
+Cell[BoxData["5"], "Output",
+ CellChangeTimes->{
+  3.8034586904043427`*^9, 3.8034588871270437`*^9, 3.803459000415801*^9, {
+   3.803459106306789*^9, 3.803459113225501*^9}, 3.803459389943747*^9, {
+   3.803459420251112*^9, 3.803459446902199*^9}, 3.803459495846209*^9, 
+   3.803459531153349*^9, 3.803459571436154*^9},
+ CellLabel->"Out[52]=",ExpressionUUID->"454b38cc-22f1-4282-b080-e08496177047"],
+
+Cell[BoxData["115"], "Output",
+ CellChangeTimes->{
+  3.8034586904043427`*^9, 3.8034588871270437`*^9, 3.803459000415801*^9, {
+   3.803459106306789*^9, 3.803459113225501*^9}, 3.803459389943747*^9, {
+   3.803459420251112*^9, 3.803459446902199*^9}, 3.803459495846209*^9, 
+   3.803459531153349*^9, 3.803459571437563*^9},
+ CellLabel->"Out[53]=",ExpressionUUID->"2b049055-0ae9-4419-a858-48099b45e0ee"],
+
+Cell[BoxData["137"], "Output",
+ CellChangeTimes->{
+  3.8034586904043427`*^9, 3.8034588871270437`*^9, 3.803459000415801*^9, {
+   3.803459106306789*^9, 3.803459113225501*^9}, 3.803459389943747*^9, {
+   3.803459420251112*^9, 3.803459446902199*^9}, 3.803459495846209*^9, 
+   3.803459531153349*^9, 3.803459571438664*^9},
+ CellLabel->"Out[55]=",ExpressionUUID->"28faeb50-981b-487f-9a1b-d4882fa38805"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+ Dobimo rezultat, da je verjetno maksimalno stevilo 137, kar je v \
+na\[SHacek]em primeru pravilni rezultat.
+
+Zgodovinsko ozadje matemati\[CHacek]nega problema sega v  \[CHacek]as druge \
+svetovne vojne zavezniki niso vedeli koliko tankov  so bili nemci sposobn \
+narediti mese\[CHacek]no v nem\[SHacek]kih tovarnah. 
+Po tem, ko je nekaj nem\[SHacek]kih tankov mark IV padlo v zavezni\[SHacek]ke \
+roke so pravilno domnevali, da si seriske \[SHacek]tevilke tankov sledijo po \
+vrsti, kot so prihajali iz teko\[CHacek]ega traku. Z matemati\[CHacek]no \
+analizo so ocenili, da 
+je nem\[SHacek]ka mese\[CHacek]na proizvodna tankov veliko ni\[ZHacek]ja, kot \
+tista, ki so jo zavezniki pridobili z klasi\[CHacek]nem vohunjenjem. Ocena \
+mesecne proizvodnje tankov med junijem 1940 in septembrom 1942 dobljena s \
+statisti\[CHacek]no analizo je bila, da je biilo v tem \[CHacek]asu narejenih 
+246 tankov medtem, ko so s klasi\[CHacek]nem vohunjenjem pri\[SHacek]li do \
+podatka, da je bilo v tem \[CHacek]asu v nem\[SHacek]kih tovarnah narejenih \
+ca. 1400 tankov. Po vojni so s pregledom nem\[SHacek]kih arhivov \
+pri\[SHacek]li do podatka da je bilo narejenih 245 tankov izjemno blizu \
+ocenjeni vrednosti.
+
+\
+\>", "Input",
+ CellChangeTimes->{{3.8034590942039022`*^9, 3.803459094208571*^9}, {
+  3.803459688340561*^9, 3.803459820410652*^9}, {3.803459895137677*^9, 
+  3.8034600006555*^9}, {3.803460051047161*^9, 3.803460141334477*^9}, {
+  3.8034601751434517`*^9, 3.803460214819047*^9}, {3.803460251543199*^9, 
+  3.803460437769431*^9}, {3.80346047982084*^9, 3.8034606786767187`*^9}, {
+  3.803460730249981*^9, 3.803460797367104*^9}},
+ FormatType->"TextForm",
+ CellLabel->"",ExpressionUUID->"d394615e-820a-4d91-bce8-86d4b2c6e764"],
+
+Cell[BoxData["da"], "Output",
+ CellChangeTimes->{3.803460315260767*^9},
+ CellLabel->"Out[56]=",ExpressionUUID->"3937afea-75f4-4756-8e34-f6b8ddac5662"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.80345864290232*^9, 3.803458642909082*^9}, {
+  3.8034596368401117`*^9, 
+  3.803459638117013*^9}},ExpressionUUID->"e95be6ee-970a-41cb-8699-\
+bd60de6397c6"]
+}, Open  ]]
+},
+WindowSize->{1920, 997},
+WindowMargins->{{0, Automatic}, {Automatic, 28}},
+Magnification:>0.8 Inherited,
+Background->RGBColor[0.94, 0.91, 0.88],
+FrontEndVersion->"12.0 for Linux x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 313, 5, 60, "Text",ExpressionUUID->"e548a488-4631-4dbb-8972-b5b4535f8ea1"],
+Cell[874, 27, 393, 7, 49, "Text",ExpressionUUID->"ccfc3841-349f-4a89-aaab-7a69f2a2cf80"],
+Cell[1270, 36, 398, 7, 27, "Input",ExpressionUUID->"4f738dd3-255b-4b6a-9bd6-c5dbc2486176"],
+Cell[CellGroupData[{
+Cell[1693, 47, 414, 8, 55, "Section",ExpressionUUID->"727df9f2-f031-448d-a279-e706fa51417b"],
+Cell[2110, 57, 2124, 30, 244, "Text",ExpressionUUID->"a485c876-9e11-480e-86cd-42dcef42d853"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4271, 92, 405, 6, 61, "Section",ExpressionUUID->"70a34f51-e461-4151-a0a1-fefa88166a21"],
+Cell[4679, 100, 463, 10, 26, "Input",ExpressionUUID->"1c68af70-7370-4641-9683-1ff49be69f27"],
+Cell[5145, 112, 494, 8, 29, "Text",ExpressionUUID->"249cb94e-1721-4312-ba79-eb562d339e52"],
+Cell[5642, 122, 1894, 56, 160, "Input",ExpressionUUID->"72f9e300-4605-49a7-980f-be8af55e27fb"],
+Cell[7539, 180, 153, 3, 26, InheritFromParent,ExpressionUUID->"7daa132b-3f25-4900-9b5c-229e89f37d5f"],
+Cell[7695, 185, 318, 6, 27, "Input",ExpressionUUID->"381e040b-e59e-4d9c-85ab-6830f52999c1"],
+Cell[8016, 193, 241, 5, 27, "Input",ExpressionUUID->"1fcb957a-8503-4ead-ae11-c692f7274689"],
+Cell[8260, 200, 2278, 38, 281, "Text",ExpressionUUID->"8b508af9-5a3f-42f0-bbeb-0200819c508a"],
+Cell[CellGroupData[{
+Cell[10563, 242, 1320, 31, 221, "Input",ExpressionUUID->"5589eef5-b684-4300-bfb3-e2c629269946"],
+Cell[11886, 275, 392, 6, 30, "Output",ExpressionUUID->"454b38cc-22f1-4282-b080-e08496177047"],
+Cell[12281, 283, 394, 6, 30, "Output",ExpressionUUID->"2b049055-0ae9-4419-a858-48099b45e0ee"],
+Cell[12678, 291, 394, 6, 30, "Output",ExpressionUUID->"28faeb50-981b-487f-9a1b-d4882fa38805"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13109, 302, 1732, 30, 128, InheritFromParent,ExpressionUUID->"d394615e-820a-4d91-bce8-86d4b2c6e764"],
+Cell[14844, 334, 150, 2, 30, "Output",ExpressionUUID->"3937afea-75f4-4756-8e34-f6b8ddac5662"]
+}, Open  ]],
+Cell[15009, 339, 202, 4, 26, InheritFromParent,ExpressionUUID->"e95be6ee-970a-41cb-8699-bd60de6397c6"]
+}, Open  ]]
+}
+]
+*)
+
